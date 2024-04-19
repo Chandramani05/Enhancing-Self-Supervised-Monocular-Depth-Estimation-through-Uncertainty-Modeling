@@ -1,9 +1,3 @@
-# Copyright Niantic 2019. Patent Pending. All rights reserved.
-#
-# This software is licensed under the terms of the Monodepth2 licence
-# which allows for non-commercial use only, the full terms of which are made
-# available in the LICENSE file.
-
 from __future__ import absolute_import, division, print_function
 
 import os
@@ -32,10 +26,6 @@ def dump_xyz(source_to_target_transformations):
 
 # from https://github.com/tinghuiz/SfMLearner
 def compute_ate(gtruth_xyz, pred_xyz_o):
-
-    # Make sure that the first matched frames align (no need for rotational alignment as
-    # all the predicted/ground-truth snippets have been converted to use the same coordinate
-    # system with the first frame of the snippet being the origin).
     offset = gtruth_xyz[0] - pred_xyz_o[0]
     pred_xyz = pred_xyz_o + offset[None, :]
 
